@@ -13062,11 +13062,46 @@ Final F-score on the testing data: 0.7329
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <p>There has been a slight improvement in accuracy and a modest improvement in F-score. Thus, the scores for the optimized model are better than the unoptimized model. This is as expected, given the discussion in Question 3 where I predicted the model to improve and/or overfit less.</p>
+<p>To verify that the model now does not overfit, I have added a cell below this to see the training accuracy. As expected, the training accuracy and F-score are very close to the test scores. This shows that the model is no longer overfitting.</p>
 <p>In Question 1, the naive predictor benchmarks were found to be: Accuracy score: 0.2478, F-score: 0.2917.</p>
 <p>Both the unoptimized and optimized Random Forest are much better than the naive predictor benchmarks.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">training_predictions</span> <span class="o">=</span> <span class="n">best_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Final accuracy score on the training data: </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">training_predictions</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Final F-score on the training data: </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">training_predictions</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Final accuracy score on the training data: 0.8774
+Final F-score on the training data: 0.7858
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
